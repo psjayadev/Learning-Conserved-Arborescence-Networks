@@ -1,7 +1,6 @@
-function [Ahat,sin_vals] = Linear_Model(X,n,N,noise_flag,Sigma_e)
+%% This function performs PCA on steady state flow data and obtains a linear model explaining the data 
 
-% This function performs PCA on steady state flow measurements of a tree
-% network and identifies the directed tree network
+function [Ahat,sin_vals] = Linear_Model(X,n,N,noise_flag,Sigma_e)
 
 %% Getting the Constraint matrix by applying svd
 if noise_flag == 0

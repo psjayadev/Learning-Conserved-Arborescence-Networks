@@ -15,7 +15,7 @@ for i=1:nNodes(1,Nlayers)
 end
 
 
-%% Obtaining the corresponding measurements in the non-sink edges
+%% Obtaining the corresponding measurements along the non-sink flow edges
 for i=Nlayers:-1:2
     l=1;
     for j=1:nNodes(1,i-1)
@@ -41,7 +41,7 @@ if noise_flag==0
     Sigma_e = [];
 
 else    
-    %% Addition of Gaussian noise to the data set
+    %% Addition of heteroscedastic Gaussian noise to the data set
     if noise_case==0
         sdv_noise = sdv_signal./(noise_var*ones(n,1));
     else

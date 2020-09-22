@@ -1,5 +1,5 @@
-%% A code to identify an arborescence network which could be a binary network, a long-thin network, a short-fat network
-% The data pertaining to the network can be given as input 
+%% A code to reconstruct an arborescence network which could be a binary network, a long-thin network, a short-fat network, from flow data
+% The flow data pertaining to the network can be given as input 
 
 noise_flag = -1;
 Nrepeats = 1;
@@ -216,14 +216,14 @@ if data_flag==1
     
     
     if noise_flag==0 && Cf_test_flag==0 
-        fprintf(2, 'The arborescence network could not be identified from given data as f-cutset matrix in desired form is not obtained. \n It is because the data does not pertain to a arborescence network. \n');
+        fprintf(2, 'The arborescence network could not be reconstructed from given data as f-cutset matrix in desired form is not obtained. \n It is because the data does not pertain to a arborescence network. \n');
     elseif noise_flag==1 && Cf_test_flag==0
-        fprintf( 2, 'The arborescence network could not be identified from given data as f-cutset matrix in desired form is not obtained. \n It is because either the data does not pertain to a arborescence network or the samples are not sufficient. \n');
+        fprintf( 2, 'The arborescence network could not be reconstructed from given data as f-cutset matrix in desired form is not obtained. \n It is because either the data does not pertain to a arborescence network or the samples are not sufficient. \n');
     elseif noise_flag==1 && index_test_flag==0
-        fprintf(2, 'The arborescence network could not be identified from given data because either the data does not pertain to a arborescence network or the samples are not sufficient. \n');
+        fprintf(2, 'The arborescence network could not be reconstructed from given data because either the data does not pertain to a arborescence network or the samples are not sufficient. \n');
     else
-        fprintf(2, 'The arborescence network is exactly identified from given data in %0.2f seconds and plotted as a graph (tree) \n', time);
-        Graph_Plot(pred_index)          % Plotting the graph if the network is exactly identified
+        fprintf(2, 'The arborescence network is exactly reconstructed from given data in %0.2f seconds and plotted as a graph (tree) \n', time);
+        Graph_Plot(pred_index)          % Plotting the graph if the network is exactly reconstructed
     end
     
 else
@@ -234,7 +234,7 @@ else
         time = toc;
         if isequal(pred_index,true_index)
             fprintf(2, 'The arborescence network is exactly identified from given data in %f seconds and plotted as a graph (tree) \n', time);
-            Graph_Plot(pred_index)          % Plotting the graph if the network is exactly identified
+            Graph_Plot(pred_index)          % Plotting the graph if the network is exactly reconstructed
         end
         
     else
@@ -254,9 +254,9 @@ else
         avg_time = sum(t)/Nrepeats;
         avg_test = sum(test)/Nrepeats*100;
         if avg_test==0
-            fprintf(2, 'The arborescence network could not be identified from any of %d dataset(s) that were generated \n', Nrepeats);
+            fprintf(2, 'The arborescence network could not be reconstructed from any of %d dataset(s) that were generated \n', Nrepeats);
         else
-            fprintf(2, 'The arborescence network is exactly identified in %0.2f percent cases of the %d dataset(s) that were generated at an average time of %f seconds \n', avg_test, Nrepeats, avg_time);
+            fprintf(2, 'The arborescence network is exactly reconstructed in %0.2f percent cases of the %d dataset(s) that were generated at an average time of %f seconds \n', avg_test, Nrepeats, avg_time);
             Graph_Plot(pred_index{1,i})
         end
     end

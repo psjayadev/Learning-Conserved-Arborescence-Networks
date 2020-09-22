@@ -13,7 +13,7 @@ for i=1:nDep
     X_vars([i,I],1)=X_vars([I,i],1);
     Ahat(i,:)=Ahat(i,:)/norm(Ahat(i,i));
     for j = 1:nDep
-        if (j~=i)
+        if (j~=i) 
             Ahat(j,:)=Ahat(j,:)-Ahat(i,:)*Ahat(j,i);
         end
     end
