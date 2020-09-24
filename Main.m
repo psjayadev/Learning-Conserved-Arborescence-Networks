@@ -5,6 +5,7 @@ noise_flag = -1;
 Nrepeats = 1;
 SNR=0;
 noise_var = 0;
+noise_case=-1;
 
 data_flag = input('<strong> Enter 1 if you want to feed data : \n Enter 2 if you want a random network and data to be generated </strong>\n');
 if isempty(data_flag)
