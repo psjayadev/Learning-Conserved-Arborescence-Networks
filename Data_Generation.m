@@ -41,7 +41,7 @@ if noise_flag==0
     Sigma_e = [];
 
 else    
-    %% Addition of heteroscedastic Gaussian noise to the data set
+    %% Addition of Gaussian noise to the data set
     if noise_case==0
         sdv_noise = sdv_signal./(noise_var*ones(n,1));
     else

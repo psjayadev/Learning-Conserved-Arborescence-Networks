@@ -38,22 +38,22 @@ if (data_flag ==1)
     end    
 
     if noise_flag==1
-        temp = input('\n <strong> Enter 1 for homoscedastic case (or) Enter 0 for heteroscedastic case and and provide a variable SNR comprising SNR values </strong> \n');
+        noise_case = input('\n <strong> Enter 1 for homoscedastic case (or) Enter 0 for heteroscedastic case and and provide a variable SNR comprising SNR values </strong> \n');
         test = exist('SNR','var');
-        if isempty(temp)
+        if isempty(noise_case)
             fprintf(2, 'No input given \n');
             return
-        elseif temp==1
-            SNR = temp;
+        elseif noise_case==1
+            SNR = noise_case;
             fprintf(2, 'Homosedastic Case \n')
-        elseif test==1 && temp==0
+        elseif test==1 && noise_case==0
             if e==size(SNR,1)
                 fprintf(2, 'Heteroscedastic case : SNR values provided \n')
             else
                 fprintf(2, 'Heteroscedastic case : SNR values provided but invalid \n SNR should be a column matrix of dimension equal to no. of variables in the data \n'); 
             return
             end
-        elseif temp~=0 && temp~=1
+        elseif noise_case~=0 && noise_case~=1
             fprintf(2, 'Invalid input \n');
             return
         else
